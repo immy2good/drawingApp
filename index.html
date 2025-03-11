@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="lib/p5.min.js"></script>
+    <script src="lib/p5.dom.js"></script>
+
+    <script src="sketch.js"></script>
+
+    <!-- add extra scripts below -->
+    <script src="toolBox.js"></script>
+    <script src="colourPalette.js"></script>
+    <script src="helperFunctions.js"></script>
+    <script src="sprayCanTool.js"></script>
+    <script src="freehandTool.js"></script>
+    <script src="shapeTool.js"></script>
+    <script src="lineToTool.js"></script>
+    <script src="mirrorDrawTool.js"></script>
+    <script src="scissorTool.js"></script>
+    <script src="strokeSettings.js">  </script>
+    <script src="undoRedoManager.js"></script>
+    <script src="stampTool.js"></script>
+    <script src="cutTool.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+  	<div class="wrapper">
+
+      <div class="header">
+        <!-- <h3>Paintt</h3> -->
+        <div class="logo" >
+            <img src="assets/palette-fill.svg" alt="logo" id="logo" title="Paintt®️">
+      </div>
+      <div style="display: flex; " id="buttonsDiv" >
+        <button id="clearButton" class="button">Clear</button>
+        <button id="saveImageButton"  class="button">Save Image</button>
+        <button id="undoButton"  class="button">Undo</button>
+        <button id="redoButton"  class="button">Redo</button>
+      </div>
+      <div class="box strokeSettings">  </div>
+      </div>
+      <div class="sidebar " id="sidebar"></div>
+      <div id="content"></div>
+      
+      <div class="box colourPalette"></div>
+      
+      <div class="box options" id="options" >
+        <div class="box stamps" id="stamp" >  </div>
+        <div class="box shapes">  </div>
+        <div class="box toolSettings">  </div>
+
+
+      </div>
+
+      <div class="footer">
+        <p style="color: rgba(184, 184, 184, 0.25);" >Paintt by Immmy®️</p>
+	    </div>
+  </body>
+
+
+</html>

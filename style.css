@@ -1,0 +1,190 @@
+html, body {
+  margin: 0px;
+  height: 100%;
+}
+
+:root {
+	--primary-color: #525252e2;
+	--secondary-color: #e6e6e6;
+	--accent-color: #f70a0a;
+	--background-color: #d32020;
+	--border-color: #eae8e8;
+	--button-hover-shadow: rgba(0, 0, 0, 0.2);
+}
+
+.sidebar {
+	grid-area: sidebar;
+	overflow-y: no-scroll;
+	/* padding: auto; */
+	background: var(--secondary-color);
+	border: #141313 solid 2;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 70px;
+
+	
+}
+
+#content {
+	grid-area: content;
+	background-color: #fff;
+	
+	cursor: crosshair;
+	/* border: black 2px solid; */
+}
+
+.header {
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	min-height: 100px;
+	background: var(--secondary-color);
+
+	font-family: Helvetica, sans-serif;
+	left: 100px;
+	width: 100%;
+	padding: 5p;
+	z-index: 1000;
+}
+
+.header h3 {
+	font-size: 1.2em;
+	font-family: 'Comic Sans MS', cursive, sans-serif;
+	color: #f70a0a;
+	text-align: center;
+	
+}	
+
+#logo {
+	max-height: 50px;
+	max-width: 50px;
+	padding: 5px;
+}
+
+.footer{
+  grid-area: footer;
+}
+
+.sideBarItem{
+	max-height: 50px;
+	max-width: 50px;
+	padding:5px;
+	cursor: pointer; /* add the pointer to make it more obvious that it is clickable */
+	
+}
+
+.sideBarItem img{
+	max-height: 50px;
+	max-Width:50px;
+	/* border: 1rem solid; */
+	
+}
+
+.colourPalette{
+	grid-area: colourP;
+	display:flex;
+	flex-direction:grid;
+	flex-flow: wrap;
+	cursor: pointer; /* add the pointer to make it more obvious that it is clickable */
+
+}
+
+.options{
+	grid-area: options;
+	padding: 16px;
+}
+
+.stamp {
+	grid-area: stamp;
+}
+
+.strokeSettings{
+	display: flex;
+	flex-direction: row;
+}
+
+.colourSwatches{
+	box-sizing: border-box;
+	display: flex;
+	width: 30px;
+	height: 30px;
+	max-height: 40px;
+	max-width: 40px;
+	margin: 5px;
+}
+
+
+.wrapper {
+	display: grid;
+	height: 100%;
+	grid-template-columns: 100px 400px  minmax(400px, 1fr);
+	grid-template-rows: 100px minmax(350px, 1fr) 160px;
+	grid-template-areas:
+			"sidebar header header"
+			"sidebar content content"
+			"sidebar colourP options"
+			;
+	background: var(--secondary-color);
+
+	color: var(--primary-color);
+
+}
+.box {
+  
+  color: var(--primary-color);
+  font-size: 1.5em;
+  padding: 10px;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-size: large;
+}
+
+
+.button {
+  background-color: #ffffff00;
+  color: var(--primary-color);
+
+  /* color: var(--secondary-color); */
+  min-width: 70px;
+  padding: 5px 5px;
+  border-color: var(--border-color);
+  /* border-radius: 5px; */
+  cursor: pointer;
+  margin: 10px;
+  text-wrap: nowrap;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+
+  ;
+}
+
+.button:hover {
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.colourSwatches:Hover {
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+	transform: scale(1.2);
+	transition: transform 0.3s ease-in-out;
+}
+
+#canvas {
+  background-color: #d32020;
+  border: 2px solid black;
+  cursor: crosshair;
+}
+
+.sideBarItem:hover {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+#logo:hover {
+	transform: scale(1.1);
+	transition: transform 0.3s ease-in-out;
+}
+
+.stampTypes img{
+ max-height: 50px;
+ max-width: 50px;
+}

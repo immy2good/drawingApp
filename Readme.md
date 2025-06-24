@@ -1,40 +1,145 @@
-# Draw Application Case Study
+# Drawing App
 
-Open the application in Brackets by dragging the folder from your Finder or Explorer into the Brackets window. Click on the live preview button to open the application in your browser. Try out all the tools in the drawing application; these are the four icons on the left of the screen. There is a freehand tool, a line draw tool, a spray can and a mirror draw tool. You’ll notice that the 'clear' and 'save' buttons don’t work yet. We’ll come to those soon.
-Read through the files
+An interactive drawing application built with [p5.js](https://p5js.org/) as part of the University of London BSc Computer Science course "Intro to Programming 2" (ITP2) — March 2025.
 
-Before you get started altering the application, read through the various files that make up the drawing application template. There are quite a few of them but several should be familiar.
+## Table of Contents
 
-*Index.html:* The outlines of the HTML content of the application. This is a bit more complex than some of the other HTML files you will have seen in p5.js programmes. Some of this application is built on the DOM and outside of the canvas. There are also a lot of script imports. These files make up the rest of the application, along with p5.dom and the style sheet.
-*style.css:* The style sheet. As we are using the DOM, this handles the layout and look of the application. 
-*sketch.js:* The p5.js sketch, which declares any global variables, setup and draw.
-*p5.min.js:* The p5 library – thankfully we don’t have to know what goes on inside here!
-*colourPalette.js and toolbox.js:* These are two container functions that have been written for you. You don’t need to fully understand them but you might want to use some of their properties. For example, selectedTool gets the current tool that has been selected by the user.
-*helperFunctions.js:* A place to write functions that either don’t necessarily belong to objects or that you want to use multiple times. Right now, it contains click handlers for the 'clear' button and the 'save image' button.
-*lineToTool.js, freehandTool.js and mirrorDrawTool.js:* All tools that appear in the tool box. 
+* [Demo](#demo)
+* [Features](#features)
+* [Tech Stack](#tech-stack)
+* [Installation](#installation)
+* [Running the App](#running-the-app)
+* [Accessing the Front End](#accessing-the-front-end)
+* [Project Structure](#project-structure)
+* [Contributing](#contributing)
+* [License](#license)
+* [Contact](#contact)
 
-For tools to work, they have to have: a property called 'icon', which is an URI for an image for the tool icon; a property called 'name', which is a string name for the tool; and a draw function.
+## Demo
 
-## Task 1: Comment the lineToTool.js
-Comment the file so that another programmer can understand what it does and how it works. You might not have seen loadPixel and updatePixel functions before. Check them out in the p5 documentation and see what they do. Try commenting them out and seeing how it affects the running of the program (remember to uncomment the two lines again before submitting your code).
+> *Screenshot or GIF of the app in action*
 
-## Task 2: Turn sprayCan into a constructor function
-Currently the spray can tool is an object literal declared in the sketch file. Change it to a constructor function in its own file:
+You can see and try the live version of the app here:
 
-* Cut the spray can object literal from the sketch file and paste it into a new file. 
-* Save the file as sprayCanTool.js.
-* Rewrite the object literal as a constructor function called SprayCanTool(). Don’t forget that properties and methods are declared with this (e.g. this.points = 13 and this.draw = function()).
-* Delete the object literal from the file when you are done.
-* In the index.html file, add a new script tag for sprayCanTool.js.
-* In sketch.js change the toolbox.addTool(sprayCan); to create a new sprayCan.
+**GitHub Pages:**
 
-## Task 3: Complete the helper functions
-In the helperFunctions constructor, two event handlers are created to handle the save and clear buttons.
+```
+https://immy2good.github.io/drawingApp/
+```
 
-* Replace ??? on line 9 with the p5.js background function to reset the colour to white.
-* Replace ??? on line 19. In the p5.js reference guide, look up a function to save the canvas. Call this function so the user's drawing is saved to the hard disk.
+*(If GitHub Pages is not enabled, see [Accessing the Front End](#accessing-the-front-end) below to run locally.)*
 
-## When you're done: 
-Some other things to do when you have finished:
-Take a look at the mirror tool. It’s a bit more complex than the others we have seen; see if you can work out how it works.
-Try to write some tools of your own. Maybe a rectangle tool and an ellipse tool.
+## Features
+
+* **Freehand Tool**: Draw freeform strokes with adjustable brush size and colour.
+* **Line Tool**: Draw straight lines between two points.
+* **Spray Can Tool**: Simulate a spray-paint effect with customizable density.
+* **Mirror Draw Tool**: Draw symmetric patterns with real-time mirroring.
+* **Stamp Tool**: Place pre-defined shapes or images onto the canvas.
+* **Cut & Scissor Tools**: Cut out regions of the drawing and move or remove them.
+* **Shape Tool**: Draw basic shapes (e.g., rectangles, ellipses).
+* **Colour Palette**: Choose from a wide range of colours.
+* **Stroke Settings**: Adjust line thickness and opacity.
+* **Undo/Redo**: Step backward or forward through your drawing history.
+* **Save as Image**: Export your artwork as a PNG file.
+* **Clear Canvas**: Reset the canvas to a blank state.
+
+## Tech Stack
+
+* **p5.js** (and p5.dom)
+* Vanilla JavaScript (ES6+)
+* HTML5 & CSS3
+
+## Installation
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/immy2good/drawingApp.git
+   cd drawingApp
+   ```
+
+2. **No build step required.** All dependencies are included via local `lib/` files or CDN links in `index.html`.
+
+## Running the App
+
+You have two options:
+
+1. **Open directly in browser:**
+
+   * Double-click `index.html` in the project root. This works in most modern browsers.
+
+2. **Serve with a simple HTTP server (recommended):**
+
+   ```bash
+   # Python 3
+   python3 -m http.server 8000
+
+   # Or with Node.js
+   npx http-server -p 8000
+   ```
+
+   Then open `http://localhost:8000` in your browser.
+
+## Accessing the Front End
+
+* **Local:** Follow the steps under [Running the App](#running-the-app) to launch locally at `http://localhost:8000` or by opening `index.html` directly.
+
+* **Online (GitHub Pages):**
+
+  ```
+  https://immy2good.github.io/drawingApp/
+  ```
+
+  If the live site is not yet published, you can enable GitHub Pages in the repository settings and use the above URL.
+
+## Project Structure
+
+```
+drawingApp/
+├── assets/               # Icon and image assets
+├── lib/                  # p5.js and DOM library files
+├── colourPalette.js      # Colour picker container
+├── helperFunctions.js    # Handlers for clear/save buttons
+├── index.html            # Entry point & script imports
+├── shapeTool.js          # Basic shape drawing tool
+├── sketch.js             # p5.js sketch (setup & draw)
+├── style.css             # Layout & styling
+├── toolbox.js            # Tool management container
+├── tools/                # (Optional) Directory for additional tools
+│   ├── cutTool.js
+│   ├── freehandTool.js
+│   ├── lineToTool.js
+│   ├── mirrorDrawTool.js
+│   ├── scissorTool.js
+│   ├── sprayCanTool.js
+│   ├── stampTool.js
+│   └── undoRedoManager.js
+└── README.md             # This file
+```
+
+## Contributing
+
+Contributions are welcome! Feel free to:
+
+* Open issues for bugs or feature requests.
+* Submit pull requests for improvements.
+
+Please follow standard GitHub workflow:
+
+1. Fork the repository.
+2. Create a feature branch (`git checkout -b feature/name`).
+3. Commit your changes (`git commit -m "Add feature"`).
+4. Push to your fork (`git push origin feature/name`).
+5. Open a pull request.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+## Contact
+
+Developed by Immy (immy2good).
+
+* Email: [your.email@example.com](mailto:your.email@example.com)
+* GitHub: [immy2good](https://github.com/immy2good)

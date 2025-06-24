@@ -141,5 +141,5 @@ This project is licensed under the [MIT License](LICENSE).
 
 Developed by Immy (immy2good).
 
-* Email: [your.email@example.com](mailto:your.email@example.com)
 * GitHub: [immy2good](https://github.com/immy2good)
+* Email: [imran2good@hotmail.com](mailto:imran2good@hotmail.com)
